@@ -10,7 +10,7 @@ class LinearRegression:
         return X@self.W + self.B
 
     def fit(self, X, Y, lr = 5e-5, epochs = 200):
-        #using gradient desecence
+        #using gradient descent
         #and MNE
 
         n = X.shape[0] #Number of data
