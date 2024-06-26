@@ -23,7 +23,7 @@ class LinearRegression:
             dY = Y - Y_pred
             # print(dY.T@X/n)
             # print(self.W.shape)
-            W_grad = -(dY.T@X).T /n
+            W_grad = -(X.T@XdY) /n
             B_grad = -np.sum(dY, axis = 0) /n
 
             self.W -= lr*W_grad
@@ -33,4 +33,5 @@ class LinearRegression:
 
 def MNE(Y, Y_pred):
     return sum(map(lambda x: x**2,Y-Y_pred))/ Y.shape[0]
+
 
