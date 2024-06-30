@@ -6,7 +6,7 @@ class LinearRegression:
         self.W = np.ones((in_feat, out_feat))
         self.B = np.ones(out_feat)
 
-    def forward(self, X):
+    def __call__(self, X):
         return X@self.W + self.B
 
     def fit(self, X, Y, lr = 5e-5, epochs = 200):
@@ -23,7 +23,7 @@ class LinearRegression:
             dY = Y - Y_pred
             # print(dY.T@X/n)
             # print(self.W.shape)
-            W_grad = -(X.T@XdY) /n
+            W_grad = -(X.T@dY) /n
             B_grad = -np.sum(dY, axis = 0) /n
 
             self.W -= lr*W_grad
